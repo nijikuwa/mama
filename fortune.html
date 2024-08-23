@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名前占いサイト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>名前占いサイト</h1>
+    <input type="text" id="nameInput" placeholder="あなたの名前を入力してください">
+    <button onclick="startFortuneTelling()">占う</button>
+    <div id="result"></div>
+
+    <script>
+        function startFortuneTelling() {
+            const name = document.getElementById('nameInput').value;
+            if (name.trim() === '') {
+                alert('名前を入力してください');
+                return;
+            }
+
+            const fortunes = [
+                'パパに優しくすると運気アップ！',
+                'パパを抱きしめるとハッピーな一日！',
+                '予想外の幸運が訪れるでしょう',
+                '子どもに怒るのはがまんがまん',
+                '今日はパパとお風呂に入ってください。絶対'
+            ];
+
+            const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+            document.getElementById('result').innerText = `${name}さんの今日の運勢: ${randomFortune}`;
+        }
+    </script>
+</body>
+</html>
